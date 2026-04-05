@@ -6,14 +6,16 @@ edition = "2021"
 [[bin]]
 name = "arb_engine"
 path = "src/main.rs"
+
 [dependencies]
-anyhow            = "1"
-ethers            = { version = "2", features = ["ws", "rustls"] }
-ethers-flashbots  = { git = "https://github.com/onbjerg/ethers-flashbots" }
-hex               = "0.4"
-petgraph          = "0.6"
-revm              = { version = "9", features = ["ethersdb"] }
-tokio             = { version = "1", features = ["full"] }
-tracing           = "0.1"
+anyhow             = "1"
+ethers             = { version = "2", features = ["ws", "rustls"] }
+ethers-flashbots   = { git = "https://github.com/onbjerg/ethers-flashbots" }
+futures            = "0.3"
+hex                = "0.4"
+petgraph           = "0.6"
+revm               = { version = "3.5", features = ["ethersdb"] }
+tokio              = { version = "1", features = ["full"] }
+tracing            = "0.1"
 tracing-subscriber = { version = "0.3", features = ["json", "env-filter"] }
-url               = "2"
+url                = "2"
