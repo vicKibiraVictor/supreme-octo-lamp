@@ -70,7 +70,7 @@ contract TriArbExecutor {
     IBalancerVault public constant BALANCER_VAULT =
         IBalancerVault(0xBA12222222228d8Ba445958a75a0704d566BF2C8);
     IPoolManager public constant POOL_MANAGER =
-        IPoolManager(0x498581ff718922c3f8e6a244956af099B2652b2b);
+        IPoolManager(0x498581fF718922c3f8e6A244956aF099B2652b2b);
 
     address public immutable owner;
     uint256 private _lock = 1;
