@@ -142,13 +142,10 @@ struct Candidate {
     token_c: H160,
     pool_ab: PoolId,
     key_ab: PoolKey,
-    dir_ab: bool,
     pool_bc: PoolId,
     key_bc: PoolKey,
-    dir_bc: bool,
     pool_ca: PoolId,
     key_ca: PoolKey,
-    dir_ca: bool,
     loan_amount: U256,
     estimated_out: U256,
     sim_passed: bool,
@@ -600,7 +597,6 @@ fn build_candidate(
 ) -> Option<Candidate> {
     let mut tokens = [H160::zero(); 3];
     let mut pool_ids = [[0u8; 32]; 3];
-    let mut dirs = [false; 3];
     let mut rates = [0f64; 3];
     let mut liquidities = [0u128; 3];
     let mut keys: Vec<PoolKey> = Vec::new();
@@ -613,7 +609,6 @@ fn build_candidate(
 
         let edge = state.meta_graph.edges_connecting(from, to).next()?.weight();
         pool_ids[i] = edge.pool_id;
-        dirs[i] = edge.zero_for_one;
         rates[i] = edge.rate;
 
         let pool = state.pools.get(&edge.pool_id)?;
@@ -679,13 +674,10 @@ fn build_candidate(
         token_c: tokens[2],
         pool_ab: pool_ids[0],
         key_ab: keys[0].clone(),
-        dir_ab: dirs[0],
         pool_bc: pool_ids[1],
         key_bc: keys[1].clone(),
-        dir_bc: dirs[1],
         pool_ca: pool_ids[2],
         key_ca: keys[2].clone(),
-        dir_ca: dirs[2],
         loan_amount: loan,
         estimated_out: est_out,
         sim_passed: false,
