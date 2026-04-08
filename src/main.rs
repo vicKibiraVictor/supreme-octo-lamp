@@ -9,6 +9,7 @@
 // Required env:  BASE_HTTP_RPC, PRIVATE_KEY, EXECUTOR_ADDR, TREASURY_ADDR
 // Optional env:  FAST_LOOP_MS (default 400), SUBGRAPH_LOOP_S (default 120)
 
+use core::option::Option::None;
 use std::{
     collections::{HashMap, HashSet},
     sync::Arc,
