@@ -32,7 +32,7 @@ ethers-flashbots = { git = "https://github.com/onbjerg/ethers-flashbots" }
 petgraph = "0.6"
 
 # EVM simulation
-revm = { version = "9", features = ["ethersdb"] }
+revm = { version = "3.5", features = ["ethersdb"] }
 
 # Concurrency helpers
 futures = "0.3"
